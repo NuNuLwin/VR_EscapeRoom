@@ -22,7 +22,7 @@ public class KeyPad: MonoBehaviour
              _anim.SetTrigger("OpenSafe");
         }else{
             displayText.text = "Invalid";
-              displayText.text = "";
+             displayText.text = "";
         }
     }
 }
