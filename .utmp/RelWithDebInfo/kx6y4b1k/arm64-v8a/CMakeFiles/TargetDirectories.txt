@@ -1,0 +1,5 @@
+/Users/nunulwin/VR_EscapeRoom/.utmp/RelWithDebInfo/kx6y4b1k/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/nunulwin/VR_EscapeRoom/.utmp/RelWithDebInfo/kx6y4b1k/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/nunulwin/VR_EscapeRoom/.utmp/RelWithDebInfo/kx6y4b1k/arm64-v8a/GameActivity/CMakeFiles/game.dir
+/Users/nunulwin/VR_EscapeRoom/.utmp/RelWithDebInfo/kx6y4b1k/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+/Users/nunulwin/VR_EscapeRoom/.utmp/RelWithDebInfo/kx6y4b1k/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
