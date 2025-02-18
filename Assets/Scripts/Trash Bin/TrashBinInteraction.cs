@@ -4,34 +4,41 @@ using TMPro;
 public class TrashBinInteraction : MonoBehaviour
 {
     public TextMeshProUGUI tooltipText; 
+    public GameObject vase;
     private bool canThrown = false; 
     private float timer = 0f; 
 
+    void Start()
+    {
+        vase.SetActive(false); 
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        // Check if the object entering the bin is the can
+        // Check if the object entering the bin is "cola"
         if (other.CompareTag("cola"))
         {
-            // Show tooltip
             ShowTooltip("Find another cola!");
             canThrown = true;
         }
+
+        // When cola1 is found, reveal the vase
         if (other.CompareTag("cola1"))
         {
-            // Show tooltip
-            Debug.Log("OnTriggerEnter");
-            ShowTooltip("Next clue: Fruit.");
+            Debug.Log("cola1 found!");
+            ShowTooltip("Next clue: Vase.");
+            vase.SetActive(true);
             canThrown = true;
         }
     }
 
     void Update()
     {
-        // If the can was thrown and tooltip is shown, start a timer to hide it
+        
         if (canThrown)
         {
             timer += Time.deltaTime;
-            if (timer > 10f) // Hide after 3 seconds
+            if (timer > 10f) 
             {
                 HideTooltip();
                 canThrown = false;
@@ -44,12 +51,12 @@ public class TrashBinInteraction : MonoBehaviour
     void ShowTooltip(string message)
     {
         tooltipText.text = message;
-        tooltipText.gameObject.SetActive(true); // Show the tooltip
+        tooltipText.gameObject.SetActive(true); 
     }
 
     // Hide the tooltip text
     void HideTooltip()
     {
-        tooltipText.gameObject.SetActive(false); // Hide the tooltip
+        tooltipText.gameObject.SetActive(false); 
     }
 }
