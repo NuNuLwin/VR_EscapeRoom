@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SciFi.unity
     guid: 8243bdd93ef67694aae87805dad29734
+  - enabled: 0
+    path: Assets/Samples/XR Interaction Toolkit/3.0.7/Starter Assets/DemoScene.unity
+    guid: 319dafa5c80f29f428dc1e0d03f04177
+  - enabled: 0
+    path: Assets/Scenes/test.unity
+    guid: 094992e9ebee8469eb353d378eccf655
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0035b8fd8165f4fa4b2559f3feb6bcdf,
       type: 2}

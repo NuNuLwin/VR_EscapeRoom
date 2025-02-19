@@ -5,12 +5,13 @@ public class TrashBinInteraction : MonoBehaviour
 {
     public TextMeshProUGUI tooltipText; 
     public GameObject vase;
+    public AudioSource canDropSound;
     private bool canThrown = false; 
     private float timer = 0f; 
 
     void Start()
     {
-        vase.SetActive(false); 
+        // vase.SetActive(false); 
     }
 
     void OnTriggerEnter(Collider other)
@@ -20,6 +21,7 @@ public class TrashBinInteraction : MonoBehaviour
         {
             ShowTooltip("Find another cola!");
             canThrown = true;
+            PlaySound();
         }
 
         // When cola1 is found, reveal the vase
@@ -27,8 +29,9 @@ public class TrashBinInteraction : MonoBehaviour
         {
             Debug.Log("cola1 found!");
             ShowTooltip("Next clue: Vase.");
-            vase.SetActive(true);
+            // vase.SetActive(true);
             canThrown = true;
+            PlaySound();
         }
     }
 
@@ -58,5 +61,13 @@ public class TrashBinInteraction : MonoBehaviour
     void HideTooltip()
     {
         tooltipText.gameObject.SetActive(false); 
+    }
+
+    void PlaySound()
+    {
+        if (canDropSound != null)
+        {
+            canDropSound.Play();
+        }
     }
 }
