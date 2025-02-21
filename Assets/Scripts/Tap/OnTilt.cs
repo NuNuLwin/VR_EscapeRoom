@@ -21,6 +21,9 @@ public class OnTilt : MonoBehaviour
 
     private bool withinThreshold = false;
 
+     public GameObject hammer;  
+     public GameObject vase;  
+
     private void Update()
     {
         CheckOrientation();
@@ -39,11 +42,22 @@ public class OnTilt : MonoBehaviour
 
             if (withinThreshold)
             {
+                Debug.Log("pour cup invoke");
                 OnBegin.Invoke(this);
             }
             else
             {
                 OnEnd.Invoke(this);
+            }
+
+            if (hammer != null)
+            {
+                hammer.SetActive(true);
+            }
+
+            if (vase != null)
+            {
+                vase.SetActive(true);
             }
         }
     }

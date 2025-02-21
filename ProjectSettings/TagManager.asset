@@ -8,8 +8,10 @@ TagManager:
   - cola1
   - SamplesInfoPanel
   - Breaker
-  - coffeeCup
   - SteamParticle
+  - cup
+  - coffeeCup
+  - plant
   layers:
   - Default
   - TransparentFX

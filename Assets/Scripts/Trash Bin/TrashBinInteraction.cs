@@ -1,17 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TrashBinInteraction : MonoBehaviour
 {
     public TextMeshProUGUI tooltipText; 
     public GameObject vase;
+    public GameObject hammer;
     public AudioSource canDropSound;
     private bool canThrown = false; 
     private float timer = 0f; 
+    public Button tapButton;
 
     void Start()
     {
-        // vase.SetActive(false); 
+        vase.SetActive(false); 
+        hammer.SetActive(false); 
+    //    tapButton.interactable = false;
     }
 
     void OnTriggerEnter(Collider other)
@@ -28,8 +33,9 @@ public class TrashBinInteraction : MonoBehaviour
         if (other.CompareTag("cola1"))
         {
             Debug.Log("cola1 found!");
-            ShowTooltip("Next clue: Vase.");
-            // vase.SetActive(true);
+            ShowTooltip("Next clue: Take a cup of water and pour it on the planter.");
+            vase.SetActive(true);
+            // tapButton.interactable = true;
             canThrown = true;
             PlaySound();
         }

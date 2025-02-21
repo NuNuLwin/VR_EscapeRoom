@@ -6,17 +6,18 @@ using System.Collections;
 public class TapControl : MonoBehaviour
 {
     public ParticleSystem waterStream; 
-    // public ParticleSystem cupWater;
+    public ParticleSystem cupWater; 
+    
     public Button tapButton;
     public TextMeshProUGUI buttonText;
 
-    private bool isTapOpen = true; 
+    private bool isTapOpen = false; 
 
     void Start()
     {
        
-        // waterStream.Stop();
-        // cupWater.Stop();
+        waterStream.Stop();
+        cupWater.Stop();
 
         tapButton.onClick.AddListener(WaterFlow);
 
@@ -31,6 +32,7 @@ public class TapControl : MonoBehaviour
         if (isTapOpen)
         {
             waterStream.Play(); 
+            cupWater.Play();
             //  StartCoroutine(FillCupWater());
         }
         else
@@ -52,4 +54,6 @@ public class TapControl : MonoBehaviour
     {
         buttonText.text = isTapOpen ? "Close Tap" : "Open Tap";
     }
+
+    
 }
