@@ -1,23 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.Video;
 
-/// <summary>
-/// Plays a single video on a specified material.
-/// </summary>
+
 [RequireComponent(typeof(VideoPlayer))]
 public class PlaySingleVideo : MonoBehaviour
 {
-    [Tooltip("Whether video should play on load")]
+   
     public bool playAtStart = false;
 
-    [Tooltip("Material used for playing the video (Uses URP/Unlit by default)")]
     public Material videoMaterial = null;
 
-    [Tooltip("Video clip to play")]
     public VideoClip videoClip;
 
     private VideoPlayer videoPlayer;
     private MeshRenderer meshRenderer;
+
+    public GameObject cola; 
 
     private void Awake()
     {
@@ -55,6 +53,9 @@ public class PlaySingleVideo : MonoBehaviour
         if (videoClip == null) return;
         videoMaterial.color = Color.white;
         videoPlayer.Play();
+
+        // Enable Cola Can: Second Task
+        cola.SetActive(true);
     }
 
     public void Stop()
@@ -76,11 +77,6 @@ public class PlaySingleVideo : MonoBehaviour
         meshRenderer.material = videoMaterial;
     }
 
-    // private void OnValidate()
-    // {
-    //     if (videoMaterial == null)
-    //     {
-    //         videoMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
-    //     }
-    // }
+    
+
 }

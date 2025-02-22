@@ -1,14 +1,11 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
-/// <summary>
-/// When an object is tilted, run some functionality
-/// Used with a grabable object
-/// </summary>
 public class OnTilt : MonoBehaviour
 {
-    [Tooltip("Tilt range, 0 - 180 degrees")]
+
     [Range(0, 1)] public float threshold = 0.0f;
 
     [Serializable] public class TiltEvent : UnityEvent<MonoBehaviour> { }
@@ -23,6 +20,11 @@ public class OnTilt : MonoBehaviour
 
      public GameObject hammer;  
      public GameObject vase;  
+    public GameObject pourwaterParticle;
+    public GameObject plant; 
+    public TextMeshProUGUI paperText;  
+    public AudioSource foundObjSound;
+    public AudioSource waterSound;
 
     private void Update()
     {
@@ -38,11 +40,12 @@ public class OnTilt : MonoBehaviour
 
         if (withinThreshold != thresholdCheck)
         {
+            PlayWaterSound();
             withinThreshold = thresholdCheck;
 
             if (withinThreshold)
             {
-                Debug.Log("pour cup invoke");
+          
                 OnBegin.Invoke(this);
             }
             else
@@ -55,10 +58,39 @@ public class OnTilt : MonoBehaviour
                 hammer.SetActive(true);
             }
 
+            PlaySound();
+
             if (vase != null)
             {
                 vase.SetActive(true);
+                paperText.gameObject.SetActive(true);
             }
+        }else{
+            StopWaterSound();
         }
     }
+
+    void PlaySound()
+    {
+        if (foundObjSound != null)
+        {
+            foundObjSound.Play();
+        }
+    }
+
+    void PlayWaterSound()
+    {
+        if (waterSound != null)
+        {
+            waterSound.Play();
+        }
+    }
+    void StopWaterSound()
+    {
+        if (waterSound != null)
+        {
+            waterSound.Stop();
+        }
+    }
+
 }

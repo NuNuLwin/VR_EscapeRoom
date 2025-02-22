@@ -12,6 +12,7 @@ TagManager:
   - cup
   - coffeeCup
   - plant
+  - pourWater
   layers:
   - Default
   - TransparentFX

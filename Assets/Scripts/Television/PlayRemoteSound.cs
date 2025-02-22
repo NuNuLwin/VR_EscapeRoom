@@ -1,18 +1,12 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Play a simple sounds using Play one shot with volume, and pitch
-/// </summary>
 [RequireComponent(typeof(AudioSource))]
 public class PlayRemoteSound : MonoBehaviour
 {
-    [Tooltip("The sound that is played")]
     public AudioClip sound = null;
-
-    [Tooltip("The volume of the sound")]
+  
     public float volume = 1.0f;
 
-    [Tooltip("The range of pitch the sound is played at (-pitch, pitch)")]
     [Range(0, 1)] public float randomPitchVariance = 0.0f;
 
     private AudioSource audioSource = null;

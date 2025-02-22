@@ -10,6 +10,7 @@ public class TapControl : MonoBehaviour
     
     public Button tapButton;
     public TextMeshProUGUI buttonText;
+    public AudioSource waterSound;
 
     private bool isTapOpen = false; 
 
@@ -26,34 +27,42 @@ public class TapControl : MonoBehaviour
 
     public void WaterFlow()
     {
-       Debug.Log("Water flow triggered");
         isTapOpen = !isTapOpen; 
 
         if (isTapOpen)
         {
+            PlaySound();
             waterStream.Play(); 
             cupWater.Play();
-            //  StartCoroutine(FillCupWater());
         }
         else
         {
+
             waterStream.Stop(); 
-            // cupWater.Stop();
+            StopSound();
+
         }
 
         UpdateButtonLabel();
     }
 
-    // IEnumerator FillCupWater()
-    // {
-    //     yield return new WaitForSeconds(1); // Small delay before cup fills
-    //     cupWater.Play();
-    // }
-
     void UpdateButtonLabel()
     {
         buttonText.text = isTapOpen ? "Close Tap" : "Open Tap";
     }
-
+    void PlaySound()
+    {
+        if (waterSound != null)
+        {
+            waterSound.Play();
+        }
+    }
+    void StopSound()
+    {
+        if (waterSound != null)
+        {
+            waterSound.Stop();
+        }
+    }
     
 }

@@ -8,7 +8,11 @@ public class WelcomeTextManager : MonoBehaviour
     public Button nextButton;           
     public Button okButton;     
     public TextMeshProUGUI timerText;  
-    public AudioSource timerAudio;       
+    public AudioSource timerAudio;    
+
+    //Hide interactive objects before game start  
+    public GameObject[] objectsToHide; 
+    private GameObject remote; 
 
     private bool isFirstMessage = true;
     private float timer = 300f; 
@@ -19,7 +23,13 @@ public class WelcomeTextManager : MonoBehaviour
         nextButton.onClick.AddListener(ShowClueText);  
         okButton.onClick.AddListener(HandleOkButton); 
         okButton.gameObject.SetActive(false);  
-        timerText.gameObject.SetActive(false);         
+        timerText.gameObject.SetActive(false);   
+
+        // Hide all interactive objects before game start
+        HideGameObject(); 
+
+       // Find Remote in the objectsToHide array
+        remote = FindRemote();
     }
 
     void ShowClueText()
@@ -62,6 +72,10 @@ public class WelcomeTextManager : MonoBehaviour
         {
             timerAudio.Play();
         }
+
+        //Enable Remote: First Clue
+        remote.SetActive(true);
+
     }
 
     string FormatTime(float time)
@@ -82,6 +96,25 @@ public class WelcomeTextManager : MonoBehaviour
 
    
         timerText.text = "Game Over!";
+    }
+
+    void HideGameObject(){
+        foreach (GameObject obj in objectsToHide)
+        {
+            obj.SetActive(false); 
+        }  
+    }
+
+    GameObject FindRemote()
+    {
+        foreach (GameObject obj in objectsToHide)
+        {
+            if (obj.name.ToLower().Contains("remote")) 
+            {
+                return obj;
+            }
+        }
+        return null;
     }
 
 }
