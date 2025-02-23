@@ -40,16 +40,16 @@ public class OnTilt : MonoBehaviour
 
         if (withinThreshold != thresholdCheck)
         {
-            PlayWaterSound();
             withinThreshold = thresholdCheck;
 
             if (withinThreshold)
             {
-          
+                PlayWaterSound();
                 OnBegin.Invoke(this);
             }
             else
             {
+                StopWaterSound();
                 OnEnd.Invoke(this);
             }
 
@@ -65,8 +65,6 @@ public class OnTilt : MonoBehaviour
                 vase.SetActive(true);
                 paperText.gameObject.SetActive(true);
             }
-        }else{
-            StopWaterSound();
         }
     }
 
