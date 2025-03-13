@@ -6,7 +6,7 @@ public class KeyPad: MonoBehaviour
 {
     //[SerializeField] private TextMeshProGUI displaytext;
     [SerializeField] private TextMeshProUGUI displayText; 
-    private string Answer = "1234";
+    private string Answer = "9632";
 
     [SerializeField] private Animator _anim;
 
