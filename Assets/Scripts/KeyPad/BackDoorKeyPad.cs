@@ -20,7 +20,7 @@ public class BackDoorKeyPad: MonoBehaviour
             displayText.text = "Correct";
             //_anim.SetBool("OpenSafe",true);
              _anim.SetTrigger("Open_Back_Door");
-            Invoke("showCongratulationMsg", 2f);
+            Invoke("showCongratulationMsg", 1f);
             
         }else{
             displayText.text = "Invalid";
