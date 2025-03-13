@@ -5,13 +5,18 @@ using TMPro;
 public class KeyPad: MonoBehaviour
 {
     //[SerializeField] private TextMeshProGUI displaytext;
-     [SerializeField] private TextMeshProUGUI displayText; 
+    [SerializeField] private TextMeshProUGUI displayText; 
     private string Answer = "1234";
 
     [SerializeField] private Animator _anim;
 
     //  
+    public GameObject bathroomNote; 
 
+    void Start()
+    {
+        bathroomNote.SetActive(false);
+    }
     public void Number(int number){
         displayText.text += number.ToString();
     }
@@ -20,6 +25,7 @@ public class KeyPad: MonoBehaviour
             displayText.text = "Correct";
             //_anim.SetBool("OpenSafe",true);
              _anim.SetTrigger("OpenSafe");
+              bathroomNote.SetActive(true);
         }else{
             displayText.text = "Invalid";
              displayText.text = "";
