@@ -17,6 +17,7 @@ public class OnTilt : MonoBehaviour
     public TiltEvent OnEnd = new TiltEvent();
 
     private bool withinThreshold = false;
+    private bool hasPlayedNarrative = false;
 
      public GameObject hammer;  
      public GameObject vase;  
@@ -25,6 +26,7 @@ public class OnTilt : MonoBehaviour
     public TextMeshProUGUI paperText;  
     public AudioSource foundObjSound;
     public AudioSource waterSound;
+    public AudioSource narrative;
 
     private void Update()
     {
@@ -59,6 +61,7 @@ public class OnTilt : MonoBehaviour
             }
 
             PlaySound();
+           
 
             if (vase != null)
             {
@@ -73,6 +76,11 @@ public class OnTilt : MonoBehaviour
         if (foundObjSound != null)
         {
             foundObjSound.Play();
+            if (!hasPlayedNarrative && narrative != null) 
+            {
+                narrative.Play();
+                hasPlayedNarrative = true;
+            }
         }
     }
 

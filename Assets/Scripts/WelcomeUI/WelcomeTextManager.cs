@@ -9,6 +9,8 @@ public class WelcomeTextManager : MonoBehaviour
     public Button okButton;     
     public TextMeshProUGUI timerText;  
     public AudioSource timerAudio;    
+    public AudioSource narrative;  
+    public AudioSource narrative2;  
 
     //Hide interactive objects before game start  
     public GameObject[] objectsToHide; 
@@ -20,8 +22,11 @@ public class WelcomeTextManager : MonoBehaviour
 
     void Start()
     {
+     
+        narrative.Play();
         nextButton.onClick.AddListener(ShowClueText);  
         okButton.onClick.AddListener(HandleOkButton); 
+       
         okButton.gameObject.SetActive(false);  
         timerText.gameObject.SetActive(false);   
 
@@ -36,7 +41,9 @@ public class WelcomeTextManager : MonoBehaviour
     {
         if (isFirstMessage)
         {
-            welcomeText.text = "You have 5 minutes to escape!\n\nYour first clue is: Watch TV.\n\nGood luck!";
+            narrative.Stop();
+            narrative2.Play();
+            welcomeText.text = "You have 5 minutes to escape!\n\nSomething important is on the TV!\n\nGood luck!";
             nextButton.gameObject.SetActive(false);   
             okButton.gameObject.SetActive(true);    
             isFirstMessage = false;

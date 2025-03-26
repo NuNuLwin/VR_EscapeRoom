@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class BackDoorOpenSound: MonoBehaviour
 {
     public AudioSource audioSource; // Reference to the AudioSource component
+    public AudioSource narrative;
+    public AudioSource successSound;
 
      void Start()
     {
@@ -15,5 +17,7 @@ public class BackDoorOpenSound: MonoBehaviour
      void PlayDoorOpenSound()
     {
        audioSource.Play();
+       narrative.Play();
+       successSound.Play();
     }
 }

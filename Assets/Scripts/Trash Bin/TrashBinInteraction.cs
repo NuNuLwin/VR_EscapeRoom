@@ -10,23 +10,29 @@ public class TrashBinInteraction : MonoBehaviour
     private bool canThrown = false; 
     private float timer = 0f; 
     public Button tapButton;
+    public AudioSource narrative; 
+    public AudioSource narrative2; 
 
 
 
     void OnTriggerEnter(Collider other)
     {
+        narrative.Stop();
+        narrative2.Stop();
    
         if (other.CompareTag("cola"))
         {
-            ShowTooltip("Find another cola!");
-            canThrown = true;
+            ShowTooltip("Cola 1 of 2. \nFind the second one where water falls from above.");
+            narrative.Play();
+            // canThrown = true;
             PlaySound();
             cola1.SetActive(true);
         }
         
         if (other.CompareTag("cola1"))
         {
-            ShowTooltip("Next clue: Take a cup of water and pour it on the planter.");
+            ShowTooltip("Cola 2 of 2. \nNext clue: Make the shortest planter wet!");
+            narrative2.Play();
             tapButton.gameObject.SetActive(true); 
             canThrown = true;
             PlaySound();
@@ -39,7 +45,7 @@ public class TrashBinInteraction : MonoBehaviour
         if (canThrown)
         {
             timer += Time.deltaTime;
-            if (timer > 10f) 
+            if (timer > 20f) 
             {
                 HideTooltip();
                 canThrown = false;

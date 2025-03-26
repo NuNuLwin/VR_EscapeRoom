@@ -4,16 +4,18 @@ using UnityEngine.UI;
 
 public class SafeOpenSound: MonoBehaviour
 {
-    public AudioSource audioSource; // Reference to the AudioSource component
+    public AudioSource audioSource; 
+    public AudioSource narrative;
 
      void Start()
     {
-        // Ensure there's an AudioSource and AudioClip assigned
+        
         audioSource = GetComponent<AudioSource>();
     }
 
      void PlayDoorOpenSound()
     {
        audioSource.Play();
+       narrative.Play();
     }
 }
