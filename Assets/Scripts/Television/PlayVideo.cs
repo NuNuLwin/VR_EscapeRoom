@@ -59,7 +59,7 @@ public class PlaySingleVideo : MonoBehaviour
         playTV = true;
         videoMaterial.color = Color.white;
         videoPlayer.Play();
-        ShowTooltip("This is’t just an ad. It is a clue.!");
+        ShowTooltip("This isn’t just an ad...\nIt’s your way out.\nLook closer.\nThe product logo— that’s your next clue.");
 
         // Enable Cola Can: Second Task
         cola.SetActive(true);
