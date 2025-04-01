@@ -2578,8 +2578,8 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
   m_Resource: {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.231
-  m_Pitch: 1
+  m_Volume: 0.359
+  m_Pitch: 1.07
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -35963,7 +35963,7 @@ MonoBehaviour:
   key9: {fileID: 272579151}
   execute: {fileID: 478669695}
   audioSource: {fileID: 0}
-  buttonSound: {fileID: 8300000, guid: eb6747799fac14af58d8c4fc5410fc1e, type: 3}
+  buttonSound: {fileID: 8300000, guid: 39eeabf0f489f4e46a024aa733bf1b4b, type: 3}
 --- !u!82 &1703346505
 AudioSource:
   m_ObjectHideFlags: 0
