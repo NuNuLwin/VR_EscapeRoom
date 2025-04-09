@@ -1,10 +1,18 @@
+/*
+ * BackDoorButtonSound.cs
+ * 
+ * Description:
+ * This script is used to assign and play a button click sound for a numeric keypad and an execute button in a Unity UI.
+ * When any of the buttons (key1 to key9 or execute) is clicked, a specified audio clip is played through an AudioSource component.
+ * 
+ */
 using UnityEngine;
-using UnityEngine.UI;  // Required for accessing UI Button
-using UnityEngine.Events;
+using UnityEngine.UI;  
 
 public class BackDoorButtonSound: MonoBehaviour
 {
-    public Button key1;         // Reference to your button
+    // References to numeric keypad buttons and execute button
+    public Button key1;
     public Button key2;  
     public Button key3;  
     public Button key4;  
@@ -15,12 +23,13 @@ public class BackDoorButtonSound: MonoBehaviour
     public Button key9;  
     public Button execute;  
 
-    public AudioSource audioSource; // Reference to the AudioSource component
-    public AudioClip buttonSound;   // The sound to play when the button is clicked
+    // Audio source and audio clip to play on button click
+    public AudioSource audioSource; 
+    public AudioClip buttonSound; 
 
     void Start()
     {
-        // Ensure there's an AudioSource and AudioClip assigned
+        // Attempt to retrieve the AudioSource if not already assigned
         audioSource = GetComponent<AudioSource>();
         if ( buttonSound == null)
         {
@@ -28,7 +37,7 @@ public class BackDoorButtonSound: MonoBehaviour
             return;
         }
 
-        // Add a listener to the button to play sound when clicked
+        // Register click listeners for each button to trigger the sound
         key1.onClick.AddListener(PlayButtonSound);
         key2.onClick.AddListener(PlayButtonSound);
         key3.onClick.AddListener(PlayButtonSound);
@@ -41,9 +50,9 @@ public class BackDoorButtonSound: MonoBehaviour
         execute.onClick.AddListener(PlayButtonSound);
     }
 
-    // Function to play the sound when the button is clicked
+    // Plays the assigned audio clip using the AudioSource
     void PlayButtonSound()
     {
-        audioSource.PlayOneShot(buttonSound); // Play the sound
+        audioSource.PlayOneShot(buttonSound);
     }
 }

@@ -1,20 +1,27 @@
+/*
+ * BackDoorOpenSound.cs
+ * 
+ * Description:
+ * This script is responsible for playing audio when the back door opens. It plays a combination of 
+ * door sound effects, a narrative voiceover, and a success sound. The `PlayDoorOpenSound()` method 
+ * should be called (e.g., via an animation event or trigger) to play the sounds simultaneously.
+ *
+ */
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI; 
 
 public class BackDoorOpenSound: MonoBehaviour
 {
-    public AudioSource audioSource; // Reference to the AudioSource component
-    public AudioSource narrative;
-    public AudioSource successSound;
+    public AudioSource audioSource;     // Door opening sound
+    public AudioSource narrative;       // Narrative explanation
+    public AudioSource successSound;    // Sound to indicate successful unlock
 
      void Start()
     {
-        // Ensure there's an AudioSource and AudioClip assigned
         audioSource = GetComponent<AudioSource>();
     }
 
-     void PlayDoorOpenSound()
+    // Call this method to play all associated audio clips
+    void PlayDoorOpenSound()
     {
        audioSource.Play();
        narrative.Play();
