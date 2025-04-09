@@ -1,3 +1,13 @@
+/*
+ * BreakableVase.cs
+ * 
+ * Description:
+ * This script manages the behavior of a breakable vase object.
+ * When a collider tagged as "Breaker" interacts with the vase, the vase will "break" by becoming non-kinematic,
+ * allowing physics to take over. Additionally, a crash sound will play upon breaking.
+ * The vase can optionally be destroyed after a brief delay.
+ */
+
 using UnityEngine;
 
 public class BreakableVase : MonoBehaviour
@@ -8,36 +18,27 @@ public class BreakableVase : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("start breaking");
-        rb = GetComponent<Rigidbody>(); 
-        rb.isKinematic = true; 
+        rb = GetComponent<Rigidbody>();     // Get the Rigidbody component attached to this object
+        rb.isKinematic = true;              // Set the Rigidbody to be kinematic initially (no physics interactions)
     }
 
     void OnTriggerEnter(Collider other)
     {
        
-         Debug.Log("OnTriggerEnter");
-         Debug.Log(other.gameObject.name);
+        // If the object colliding with the vase has the tag "Breaker"
         if (other.gameObject.CompareTag("Breaker"))
         {
             isBroken = true;
-            rb.isKinematic = false; 
-             PlayCrashSound();
-            // Invoke("DestroyPiece", 3f); // Destroy after 3 seconds
+            rb.isKinematic = false;         // Disable kinematic mode to enable physics interactions (vase breaks)
+             PlayCrashSound();              // Play the crash sound
         }
-    }
-
-   void DestroyPiece()
-    {
-        Debug.Log(gameObject.name + " is destroyed.");
-        Destroy(gameObject);
     }
 
     void PlayCrashSound()
     {
         if (crashSound != null)
         {
-            crashSound.Play(); 
+            crashSound.Play();               // Play the crash sound
         }
     }
 
