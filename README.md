@@ -1,5 +1,3 @@
-CS 735 - VR Esacpe room - Group H
-
 # CS 735 - VR Escape Room - Group H
 
 ## 📌 Project Overview
@@ -122,12 +120,12 @@ These are the top-level folders visible in Unity's Hierarchy window:
 
 - **Scripts** - All game interaction C# scripts
 - **Audio** - Background music and sound effects
-- **Video** - Advertisement videos
+- **Video** - Coca Cola Advertisement videos
 - **Prefabs** - All reusable game objects
 - **Animation** - Door animations
 - **Materials** - Surface textures
-- **Scene** - Game level scenes
-- **Shader** - Custom visual effects
+- **Scene** - SciFi scenes
+- **Shader** - Votex Shader Animation for Trash Bin
 
 ## 👥 Team Members
 
