@@ -6228,8 +6228,9 @@ MonoBehaviour:
   - {fileID: 358732789}
   - {fileID: 1243983736}
   - {fileID: 483526508}
-  - {fileID: 1428848109}
   - {fileID: 1571550426}
+  - {fileID: 1187018810}
+  - {fileID: 1428848109}
 --- !u!82 &298670543
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13445,6 +13446,7 @@ MonoBehaviour:
   tapButton: {fileID: 358732791}
   narrative: {fileID: 781763700}
   narrative2: {fileID: 781763704}
+  cup: {fileID: 1187018810}
 --- !u!64 &781763691
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22214,17 +22216,17 @@ PrefabInstance:
     - target: {fileID: 1349030874654835565, guid: d446315a670bb8245a029876f22a0501,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0035996
+      value: 0.967
       objectReference: {fileID: 0}
     - target: {fileID: 1349030874654835565, guid: d446315a670bb8245a029876f22a0501,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2122544
+      value: -0.385
       objectReference: {fileID: 0}
     - target: {fileID: 1349030874654835565, guid: d446315a670bb8245a029876f22a0501,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.4308667
+      value: -4.156
       objectReference: {fileID: 0}
     - target: {fileID: 1349030874654835565, guid: d446315a670bb8245a029876f22a0501,
         type: 3}
