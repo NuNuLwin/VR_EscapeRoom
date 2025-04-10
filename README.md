@@ -114,7 +114,6 @@ These are the top-level folders visible in Unity's Hierarchy window:
 ### 📁 Top-Level Folders
 
 - **Assets** - Main project assets
-- **TirgamesAssets** - Default SciFi assets from Unity
 
 ### 📂 Assets Subfolders
 
@@ -126,6 +125,7 @@ These are the top-level folders visible in Unity's Hierarchy window:
 - **Materials** - Surface textures
 - **Scene** - SciFi scenes
 - **Shader** - Votex Shader Animation for Trash Bin
+- **TirgamesAssets** - Default SciFi assets from Unity
 
 ## 👥 Team Members
 
