@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*
+ * PlayVideo.cs
+ * 
+ * Description:
+ * This script controls the playback of a cola ad video on a `VideoPlayer` component.
+ * It allows the video to be played through user interaction. 
+ * The video is displayed on a material applied to a mesh, and a tooltip with specific messages is shown during the video.
+ * The script also enables a GameObject (like a cola can) after the video starts playing.
+ */
+using UnityEngine;
 using UnityEngine.Video;
 using TMPro;
 
@@ -31,16 +40,19 @@ public class PlaySingleVideo : MonoBehaviour
             videoPlayer.clip = videoClip;
     }
 
+    // Subscribe to the prepareCompleted event of the VideoPlayer to apply the material after the video is prepared
     private void OnEnable()
     {
         videoPlayer.prepareCompleted += ApplyVideoMaterial;
     }
 
+    // Unsubscribe from the prepareCompleted event when the object is disabled
     private void OnDisable()
     {
         videoPlayer.prepareCompleted -= ApplyVideoMaterial;
     }
 
+    // Start the video based on the playAtStart flag
     private void Start()
     {
         if (playAtStart)
@@ -53,24 +65,36 @@ public class PlaySingleVideo : MonoBehaviour
         }
     }
 
+    // Method to start playing the video
     public void Play()
     {
+        // If there is no video clip, return early
         if (videoClip == null) return;
+
+        // Set flag to indicate that the TV is playing
         playTV = true;
+
+        // Set the video material to be visible
         videoMaterial.color = Color.white;
+
+        // Start playing the video
         videoPlayer.Play();
+
+        // Show the tooltip message
         ShowTooltip("This isn’t just an ad...\nIt’s your way out.\nLook closer.\nThe product logo— that’s your next clue.");
 
-        // Enable Cola Can: Second Task
+        // Enable the Cola GameObject for the next task
         cola.SetActive(true);
     }
 
+    // Method to stop the video and hide the video material
     public void Stop()
     {
-        videoMaterial.color = Color.black;
-        videoPlayer.Stop();
+        videoMaterial.color = Color.black;      // Set the video material to be invisible (black)
+        videoPlayer.Stop();                     // Stop the video
     }
 
+    // Toggle between playing and pausing the video
     public void TogglePlayPause()
     {
         if (videoPlayer.isPlaying)
@@ -85,7 +109,7 @@ public class PlaySingleVideo : MonoBehaviour
     }
 
 
- // Show the tooltip text
+    // Show the tooltip with the provided message
     void ShowTooltip(string message)
     {
         tooltipText.text = message;
@@ -98,6 +122,7 @@ public class PlaySingleVideo : MonoBehaviour
         tooltipText.gameObject.SetActive(false); 
     }
 
+    // Update the timer and hide the tooltip after a specified time
     void Update()
     {
         
